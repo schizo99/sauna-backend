@@ -10,4 +10,12 @@ export default (app) => {
 
     app.route('/temps/:tempId')
         .get(temperature.getTemp)
-};
+
+    app.route('/temps/limit/:limit')
+        .get(temperature.getLastNTemp)
+
+    app.route('/temps/days/:days')
+        .get(temperature.getByDays)
+
+
+    };

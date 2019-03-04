@@ -11,6 +11,28 @@ exports.getLastTemp = (req, res) => {
     });
 };
 
+exports.getByDays = (req, res) => {
+    var days = ~~req.params.days;
+    var d = new Date();
+    d.setDate(d.getDate() - days);
+    var a = new Date();
+    temp.find({date: {$gte: d, $lt: a}}, (err, temps) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(temps);
+    });
+};
+
+exports.getLastNTemp = (req, res) => {
+    var N = ~~req.params.limit;
+    temp.find().sort({date:-1}).limit(N).exec().then(temps => {
+        res.json(temps);
+    }).catch(err => {
+        res.json(err);
+    });
+};
+
 exports.getTemp = (req, res) => {
     temp.findById(req.params.tempId, (err, temp) => {
         if (err) {
