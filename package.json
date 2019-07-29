@@ -4,20 +4,21 @@
   "description": "Backend for sauna",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node --presets env", 
-    "release": "npm run clean && npm run build && npm run serve", 
-    "clean": "rm -rf dist && mkdir dist", "build": "babel . -s -D -d dist --presets env --ignore node_modules", 
-    "serve": "node dist/server.js" 
+    "start": "nodemon server.js --exec babel-node --presets env",
+    "release": "npm run clean && npm run build && npm run serve",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "babel . -s -D -d dist --presets env --ignore node_modules",
+    "serve": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "mongoose": "^5.4.14"
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.1"
   }
 }
